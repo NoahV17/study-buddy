@@ -54,7 +54,3 @@ class Timer{
     }
 }
 
-//@IBAction func buttonAction(){
-    
-
-//func setTitle(_ title: String?)

@@ -43,6 +43,9 @@ class Timer{
             count-=1
         }
     }
+    func seconds(int){
+        return count%60
+    }
     
     func reset() {
         count = 0

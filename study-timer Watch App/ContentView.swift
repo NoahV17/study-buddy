@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+
+
+
 struct ContentView: View {
     var body: some View {
-    let timer = Timer()
-    let minutes = 0
-    let seconds = 0
-    
+    let timer = TimeTrack()
+    //let minutes = 0
+    //let seconds = 0
+        let timeText = timer.minutes()+":"+timer.seconds()
+        
+        
         VStack {
             Text("Welcome to Study Pal!")
             Image(systemName: "stopwatch")
@@ -21,8 +26,9 @@ struct ContentView: View {
             
             
             Text("Study time left")
-            Text("25:00")
-
+            if(1==1){
+                Text(timeText)
+            }
             Button("Starts") {
                 timer.start()
             }.foregroundColor(Color.green)
@@ -31,6 +37,11 @@ struct ContentView: View {
                 Text("Pause")
                     .foregroundColor(Color.yellow)
             }
+            
+            Button(action: timer.decrement) {
+                Text("-1")
+                    .foregroundColor(Color.red)
+            }
         }
         .padding()
         VStack{
@@ -38,6 +49,7 @@ struct ContentView: View {
         }
         
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

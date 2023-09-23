@@ -15,8 +15,6 @@ struct study_timer_Watch_AppApp: App {
         }
         
     }
-    
-    
 }
 
 
@@ -73,7 +71,5 @@ class TimeTrack{
         //return temp
         //converts the count to a string to be returnable in the temp variable
     }
-    
-   
 }
 

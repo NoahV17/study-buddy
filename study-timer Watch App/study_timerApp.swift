@@ -11,19 +11,19 @@ import SwiftUI
 struct study_timer_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+                ContentView()
         }
-        
     }
 }
-
 
 
 class TimeTrack{
     //Initialize the timer class with the variable
     //paused = true, meaning the timer isn't running on start
     var studyLength = 1430
+    var studyPassed = 0
     var breakLength = 300
+    var breakPassed = 0
     var paused = true
     
     //start function allows the increment command to start counting down on the second
@@ -44,9 +44,9 @@ class TimeTrack{
     }
     
     func decrement() {
-        if(paused == false){
-            studyLength-=1
-            print(studyLength)
+        if(paused == false && studyPassed<studyLength){
+            studyPassed+=1
+            print(studyPassed)
         }
     }
     
@@ -65,7 +65,8 @@ class TimeTrack{
     func changeBreakLength(len: Int){
         breakLength = len
     }
-    
+
+
     func time(string: String){
         //let temp : String = count.stringValue
         //return temp

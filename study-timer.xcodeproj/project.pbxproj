@@ -118,8 +118,8 @@
 		1451DE492ABB53CE00425772 /* study-timer Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				1451DE4A2ABB53CE00425772 /* study_timerApp.swift */,
 				1451DE4C2ABB53CE00425772 /* ContentView.swift */,
+				1451DE4A2ABB53CE00425772 /* study_timerApp.swift */,
 				1451DE4E2ABB53CF00425772 /* Assets.xcassets */,
 				1451DE502ABB53CF00425772 /* Preview Content */,
 			);

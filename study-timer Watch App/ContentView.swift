@@ -8,34 +8,14 @@
 import SwiftUI
 
 var count: Double = 0
+var counting: Bool = false
 
 struct ContentView: View {
     
-    @State private var progress: Double = 0
-    
-    @State private var progress1: Double = 0
-
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            self.progress1 += 0.1
-        }
-
-        var body: some View {
-            VStack {
-                ProgressView(value: progress, total: 100).tint(.green)
-            }
-        }
-    
-    func longRunningFunction() {
-        // This function takes a long time to run.
-        
-        for i in 0..<100 {
-            // Update the progress bar.
-            self.progress = Double(i) / 100.0
-            
-            // Sleep for 0.1 seconds.
-            sleep(1)
-        }
-    }
+    @State private var studyLength: Double = 0
+    @State private var studyProgress: Double = 0
+    @State private var breakLength: Double = 0
+    @State private var breakProgress: Double = 0
     
     var body: some View {
         VStack {
@@ -47,13 +27,11 @@ struct ContentView: View {
                         .foregroundColor(.green)
                     
                     Text("Study time left")
-                    ProgressView(value: progress, total: 100).tint(.green)
                 }
                 
                 HStack{
                     let timer = TimeTrack()
-                    Button(action: {
-                        self.longRunningFunction()}) {
+                    Button(action: timer.run) {
                             Image(systemName: "play")
                                 .foregroundColor(Color.green)
                         }
@@ -61,7 +39,7 @@ struct ContentView: View {
                         Image(systemName: "pause")
                             .foregroundColor(Color.yellow)
                     }
-                    Button(action: timer.decrement) {
+                    Button(action: timer.reset) {
                         Image(systemName: "stop").foregroundColor(Color.red)
                     }
                 }

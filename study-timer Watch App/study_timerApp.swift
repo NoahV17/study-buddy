@@ -13,6 +13,7 @@ struct study_timer_Watch_AppApp: App {
         WindowGroup {
                 ContentView()
         }
+        
     }
 }
 
@@ -20,21 +21,21 @@ struct study_timer_Watch_AppApp: App {
 class TimeTrack{
     //Initialize the timer class with the variable
     //paused = true, meaning the timer isn't running on start
-    var studyLength = 1430
+    var studyLength = 10
     var studyPassed = 0
-    var breakLength = 300
+    var breakLength = 5
     var breakPassed = 0
-    var paused = true
+    var running = false
     
     //start function allows the increment command to start counting down on the second
     //this is triggered by pressing the start button
     func start() {
-        paused = false
+        running = true
         print("start")
     }
     //pause function puts the timer to a stop when the user presses the pause button
     func pause() {
-        paused = true
+        running = true
         print("pause")
     }
     
@@ -43,10 +44,12 @@ class TimeTrack{
         print("reset")
     }
     
-    func decrement() {
-        if(paused == false && studyPassed<studyLength){
-            studyPassed+=1
-            print(studyPassed)
+    func run() {
+        if(running == true && studyPassed<studyLength){
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+                        self.studyPassed += 1
+                        print("ran")
+                    }
         }
     }
     
@@ -65,12 +68,6 @@ class TimeTrack{
     func changeBreakLength(len: Int){
         breakLength = len
     }
-
-
-    func time(string: String){
-        //let temp : String = count.stringValue
-        //return temp
-        //converts the count to a string to be returnable in the temp variable
-    }
+    
 }
 

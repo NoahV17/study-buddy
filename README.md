@@ -1,3 +1,5 @@
+![Study-Buddy-Mascot](buddy.png)
+
 # study-buddy
 Study Buddy is an interactive app for Apple Watches<br>
 that allows anyone to easily procure good studying habits<br>

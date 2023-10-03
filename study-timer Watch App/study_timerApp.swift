@@ -12,6 +12,7 @@ struct study_timer_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
                 ContentView()
+            
         }
         
     }
@@ -45,12 +46,8 @@ class TimeTrack{
     }
     
     func run() {
-        if(running == true && studyPassed<studyLength){
-            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-                        self.studyPassed += 1
-                        print("ran")
-                    }
-        }
+        print("running")
+        
     }
     
     func seconds() -> String {

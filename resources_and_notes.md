@@ -1,4 +1,5 @@
 # This document contains random notes and useful information for devolping this app
+
 1.<a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/methods" target="_blank">Swift documentation for methods with random examples</a>
 
 2.<a href="https://developer.apple.com/tutorials/swiftui-concepts/exploring-the-structure-of-a-swiftui-app" target="_blank">General idea about how the code should be structured and built onto</a>
@@ -24,3 +25,4 @@ So far the way I've learned how to code in swift is through example code and pla
 
 ### What am I still working on?
 Right now I am in the works trying to learn how to update any on screen items live, in reaction to variables updating/ or user interaction.
+

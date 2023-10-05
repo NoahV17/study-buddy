@@ -4,7 +4,6 @@
 //
 //  Created by Noah Vario on 9/20/23.
 //
-
 import SwiftUI
 
 var count: Double = 0
@@ -22,7 +21,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Hello, World!")
+            Image(systemName: "stopwatch")
+                .imageScale(.large)
+                .foregroundColor(.green)
                 .onReceive(timer) { time in
                     //Runs through and checks for if the user is in study or break state and increments the correct variable based on that
                     if counting {
@@ -33,6 +34,7 @@ struct ContentView: View {
                                 print("Studying done! Congrats, time for a short break.")
                                 studying = false
                                 studyProgress = 0
+                                WKInterfaceDevice.current().play(.click)
                             }
                             //Runs if studying is still in progress
                             else {
@@ -47,6 +49,7 @@ struct ContentView: View {
                                 print("Your break is over, time to get back to studying!")
                                 studying = true
                                 breakProgress = 0
+                                WKInterfaceDevice.current().play(.click)
                             }
                             //Runs if break is still in progress
                             else {
@@ -58,15 +61,10 @@ struct ContentView: View {
                 }
             VStack {
                 VStack{
-                    Image(systemName: "stopwatch")
-                        .imageScale(.large)
-                        .foregroundColor(.green)
-                    
                     Text("Study time left")
+                    
                 }
-                
                 HStack{
-                    let timer = TimeTrack()
                     Button(action: {
                         counting = true
                         print("STARTED TIMER")})
@@ -101,6 +99,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-

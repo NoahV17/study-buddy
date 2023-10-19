@@ -18,15 +18,19 @@ struct ContentView: View {
     @State private var breakLength: Double = 5
     @State private var breakProgress: Double = 0
     
+    //Sends a siglan to run through the if statements running the program
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {
-            Text("Hello, World!")
+            Text("Pocket Pomodoro")
+            Text("Study Buddy")
+            Text("")
+                //The following code is fired every second using line #21
                 .onReceive(timer) { time in
                     //Runs through and checks for if the user is in study or break state and increments the correct variable based on that
                     if counting {
-                        //Runs if in the studying state
+                        //Runs if the user is currently studying
                         if studying {
                             //Runs if studying has exceeded desired length
                             if studyProgress >= studyLength {
@@ -63,6 +67,9 @@ struct ContentView: View {
                         .foregroundColor(.green)
                     
                     Text("Study time left")
+                    Text("")
+                    Text("")
+                    Text("")
                 }
                 
                 HStack{
@@ -83,8 +90,8 @@ struct ContentView: View {
                         }
                     Button(action: {
                         counting = false
-                        breakLength = 0
-                        studyLength = 0
+                        breakProgress = 0
+                        studyProgress = 0
                         print("RESET AND STOPPED TIMER")})
                         {
                             Image(systemName: "stop")
